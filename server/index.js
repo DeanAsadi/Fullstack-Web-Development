@@ -18,8 +18,16 @@ passport.use(new GoogleStrategy( {
    console.log(accessToken)
  } ))
 
+ //GoogleStrategy, has an internel identifire know as 'google'
+ // So passport, will take the 'google' and find the strategy --> GoogleStrategy
+ // scopr, we're asking google to give us an access to user's 'profile; and 'email;
+ app.get('/auth/google', passport.authenticate())
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
+
+
+
 
 
 
